@@ -25,6 +25,11 @@ Ripgrep
 brew install ripgrep
 ```
 
+Lazygit
+```shell
+brew install jesseduffield/lazygit/lazygit
+```
+
 ### Usage
 ```shell
 > mkdir -p ~/.config/nvim

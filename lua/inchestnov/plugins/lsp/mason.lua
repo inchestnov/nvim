@@ -28,17 +28,9 @@ return {
 			-- list of servers for mason to install
 			ensure_installed = {
 				"lua_ls",
-				-- "html",
-				-- "gopls",
-				-- "jdtls",
+				"gopls",
+				"jdtls",
 			},
 		})
-
-		-- [[ mason_tool_installer.setup({ ]]
-		-- 	ensure_installed = {
-		-- 		"prettier",
-		-- 		"stylua",
-		-- 	},
-		-- })
 	end,
 }
