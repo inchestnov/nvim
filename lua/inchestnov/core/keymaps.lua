@@ -6,18 +6,21 @@ local keymap = vim.keymap -- for conciseness
 -- Shortcut to exit from normal mode by Esc.
 -- Attention: it always try to save file if it is possible,
 --            but if it's not - force quit without saving anyway.
-vim.keymap.set("n", "<Esc>", function()
-	-- Workaround to force quit even if error if occurred.
-	-- The main goal is to exit with save if it possible,
-	-- just exit where wq returns error.
-	local status, err = pcall(function()
-		vim.cmd("wq")
-	end)
-	if not status then
-		print("Error while exit: " .. err .. ". Exiting anyway without save.")
-		vim.cmd("q")
-	end
-end, { desc = "Save and exit", noremap = true, silent = true })
+-- vim.keymap.set("n", "<Esc>", function()
+-- 	-- Workaround to force quit even if error if occurred.
+-- 	-- The main goal is to exit with save if it possible,
+-- 	-- just exit where wq returns error.
+-- 	local status, err = pcall(function()
+-- 		vim.cmd("wq")
+-- 	end)
+-- 	if not status then
+-- 		print("Error while exit: " .. err .. ". Exiting anyway without save.")
+-- 		vim.cmd("q")
+-- 	end
+-- end, { desc = "Save and exit", noremap = true, silent = true })
+
+-- use Esc to leave from every mode
+keymap.set("", '<Esc>', '<C-c>:q!<CR>', { noremap = true, silent = true })
 
 -- increment/decrement numbers
 keymap.set("n", "<leader>+", "<C-a>", { desc = "Increment number" })

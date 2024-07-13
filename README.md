@@ -30,6 +30,16 @@ Lazygit
 brew install jesseduffield/lazygit/lazygit
 ```
 
+Delve (only for go debug)
+```shell
+go install github.com/go-delve/delve/cmd/dlv@latest
+```
+
+Golangci-lint
+```shell
+brew install golangci-lint
+```
+
 ### Usage
 ```shell
 > mkdir -p ~/.config/nvim
