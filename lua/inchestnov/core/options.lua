@@ -10,7 +10,7 @@ vim.cmd("autocmd TextChanged * silent! write")
 local opt = vim.opt
 
 -- show relative numbers (relative on current line)
--- opt.relativenumber = true
+opt.relativenumber = true
 -- show line number
 opt.number = true
 
