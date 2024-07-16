@@ -20,7 +20,8 @@ local keymap = vim.keymap -- for conciseness
 -- end, { desc = "Save and exit", noremap = true, silent = true })
 
 -- use Esc to leave from every mode
-keymap.set("", "<Esc>", "<C-c>:q!<CR>", { noremap = true, silent = true })
+-- keymap.set("", "<Esc>", "<C-c>:q!<CR>", { noremap = true, silent = true })
+--
 
 -- increment/decrement numbers
 keymap.set("n", "<leader>+", "<C-a>", { desc = "Increment number" })
@@ -43,3 +44,8 @@ keymap.set("n", "<leader>tf", "<cmd>tabnew %<CR>", { desc = "Open current buffer
 -- keymap.set({ "n", "o", "x"}, "w", "<cmd>lua require('spider').motion('w')<CR>", desc = { "Spider-w" })
 -- keymap.set({ "n", "o", "x"}, "e", "<cmd>lua require('spider').motion('e')<CR>", desc = { "Spider-w" })
 -- keymap.set({ "n", "o", "x"}, "b", "<cmd>lua require('spider').motion('b')<CR>", desc = { "Spider-w" })
+--
+-- dap
+keymap.set("n", "<leader>db", '<cmd>lua require("dap").toggle_breakpoint()<CR>', { noremap = true, silent = true })
+keymap.set("n", "<leader>dc", '<cmd>lua require("dap").continue()<CR>', { noremap = true, silent = true })
+keymap.set("n", "<leader>dn", '<cmd>lua require("dap").step_over()<CR>', { noremap = true, silent = true })
