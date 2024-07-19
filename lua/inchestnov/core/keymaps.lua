@@ -1,51 +1,36 @@
 vim.g.mapleader = " "
 
-local keymap = vim.keymap -- for conciseness
+-- Split navigation
+vim.keymap.set("n", "<leader>sv", "<C-w>v", { desc = "Split window vertically" })
+vim.keymap.set("n", "<leader>sh", "<C-w>s", { desc = "Split window horizontally" })
+vim.keymap.set("n", "<leader>se", "<C-w>=", { desc = "Make splits equal size" })
+vim.keymap.set("n", "<leader>e", "<cmd>close<CR>", { desc = "Close current split" })
 
--- switch mode
--- Shortcut to exit from normal mode by Esc.
--- Attention: it always try to save file if it is possible,
---            but if it's not - force quit without saving anyway.
--- vim.keymap.set("n", "<Esc>", function()
--- 	-- Workaround to force quit even if error if occurred.
--- 	-- The main goal is to exit with save if it possible,
--- 	-- just exit where wq returns error.
--- 	local status, err = pcall(function()
--- 		vim.cmd("wq")
--- 	end)
--- 	if not status then
--- 		print("Error while exit: " .. err .. ". Exiting anyway without save.")
--- 		vim.cmd("q")
--- 	end
--- end, { desc = "Save and exit", noremap = true, silent = true })
-
--- use Esc to leave from every mode
--- keymap.set("", "<Esc>", "<C-c>:q!<CR>", { noremap = true, silent = true })
---
+-- Move selected up\down
+vim.keymap.set("v", "<C-Down>", ":m '>+1<CR>gv=gv")
+vim.keymap.set("v", "<C-Up>", ":m '<-2<CR>gv=gv")
 
 -- increment/decrement numbers
-keymap.set("n", "<leader>+", "<C-a>", { desc = "Increment number" })
-keymap.set("n", "<leader>-", "<C-x>", { desc = "Decrement number" })
+vim.keymap.set("n", "<leader>+", "<C-a>", { desc = "Increment number" })
+vim.keymap.set("n", "<leader>-", "<C-x>", { desc = "Decrement number" })
 
 -- splits
-keymap.set("n", "<leader>sv", "<C-w>v", { desc = "Split window vertically" })
-keymap.set("n", "<leader>sh", "<C-w>s", { desc = "Split window horizontally" })
-keymap.set("n", "<leader>se", "<C-w>=", { desc = "Make splits equal size" })
-keymap.set("n", "<leader>sx", "<cmd>close<CR>", { desc = "Close current split" })
+vim.keymap.set("n", "<leader>sv", "<C-w>v", { desc = "Split window vertically" })
+vim.keymap.set("n", "<leader>sh", "<C-w>s", { desc = "Split window horizontally" })
+vim.keymap.set("n", "<leader>se", "<C-w>=", { desc = "Make splits equal size" })
+vim.keymap.set("n", "<leader>sx", "<cmd>close<CR>", { desc = "Close current split" })
 
 -- tabs
-keymap.set("n", "<leader>to", "<cmd>tabnew<CR>", { desc = "Open new tab" })
-keymap.set("n", "<leader>tx", "<cmd>tabclose<CR>", { desc = "Close current tab" })
-keymap.set("n", "<leader>tn", "<cmd>tabn<CR>", { desc = "Go to next tab" })
-keymap.set("n", "<leader>tp", "<cmd>tabp<CR>", { desc = "Go to previous tab" })
-keymap.set("n", "<leader>tf", "<cmd>tabnew %<CR>", { desc = "Open current buffer in new tab" })
+vim.keymap.set("n", "<leader>to", "<cmd>tabnew<CR>", { desc = "Open new tab" })
+vim.keymap.set("n", "<leader>tx", "<cmd>tabclose<CR>", { desc = "Close current tab" })
+vim.keymap.set("n", "<leader>tn", "<cmd>tabn<CR>", { desc = "Go to next tab" })
+vim.keymap.set("n", "<leader>tp", "<cmd>tabp<CR>", { desc = "Go to previous tab" })
+vim.keymap.set("n", "<leader>tf", "<cmd>tabnew %<CR>", { desc = "Open current buffer in new tab" })
 
--- nvim-spider
--- keymap.set({ "n", "o", "x"}, "w", "<cmd>lua require('spider').motion('w')<CR>", desc = { "Spider-w" })
--- keymap.set({ "n", "o", "x"}, "e", "<cmd>lua require('spider').motion('e')<CR>", desc = { "Spider-w" })
--- keymap.set({ "n", "o", "x"}, "b", "<cmd>lua require('spider').motion('b')<CR>", desc = { "Spider-w" })
---
 -- dap
-keymap.set("n", "<leader>db", '<cmd>lua require("dap").toggle_breakpoint()<CR>', { noremap = true, silent = true })
-keymap.set("n", "<leader>dc", '<cmd>lua require("dap").continue()<CR>', { noremap = true, silent = true })
-keymap.set("n", "<leader>dn", '<cmd>lua require("dap").step_over()<CR>', { noremap = true, silent = true })
+vim.keymap.set("n", "<leader>db", '<cmd>lua require("dap").toggle_breakpoint()<CR>', { noremap = true, silent = true })
+vim.keymap.set("n", "<leader>dc", '<cmd>lua require("dap").continue()<CR>', { noremap = true, silent = true })
+vim.keymap.set("n", "<leader>dn", '<cmd>lua require("dap").step_over()<CR>', { noremap = true, silent = true })
+
+-- Format code using LSP
+vim.keymap.set("n", "<leader>ff", vim.lsp.buf.format)

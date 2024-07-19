@@ -1,40 +1,19 @@
--- vim.cmd - command to vim native
+vim.opt.termguicolors = true
 
--- show tree explorer
-vim.cmd("let g:netrw_liststyle = 3")
+vim.opt.number = true
+vim.opt.relativenumber = true
 
--- autosave after any change 
-vim.cmd("autocmd InsertLeave * :w")
-vim.cmd("autocmd TextChanged * silent! write")
+vim.opt.tabstop = 2 -- 2 spaces for tab
+vim.opt.shiftwidth = 2 -- 2 spaces for indent width
+vim.opt.expandtab = true -- replace tab with spaces
+vim.opt.wrap = false -- no wrap
 
-local opt = vim.opt
+vim.opt.clipboard:append("unnamedplus") -- use system clipboard as default register
 
--- show relative numbers (relative on current line)
-opt.relativenumber = true
--- show line number
-opt.number = true
+vim.opt.ignorecase = true -- ignore case when searching
+vim.opt.smartcase = false -- do not ignore case when search input contains capital letters
 
--- tabs & indentation
-opt.tabstop = 2       -- 2 spaces for tabs
-opt.shiftwidth = 2    -- 2 spaces for indent width
-opt.expandtab = true  -- expand tab to spaces
-opt.autoindent = true -- copy indent from current line when starting new one
+vim.opt.hlsearch = false -- clear highlight after search
+vim.opt.incsearch = true -- enable increase search
 
--- ???
-opt.wrap = false
-
--- search settings
-opt.ignorecase = true -- ignorecase when searching
-opt.smartcase = false -- mixes case is also ignoring
--- /???
-opt.cursorline = true
-
--- backspace
-opt.backspace = "indent,eol,start" -- allow backspace on indent, end of line or insert mode start position
-
--- clipboard
-opt.clipboard:append("unnamedplus") -- use system clipboard as default register
-
--- split windows
-opt.splitright = true -- split vertical window to the right
-opt.splitbelow = true -- split horizontal window to the bottom
+vim.opt.scrolloff = 8
