@@ -29,6 +29,17 @@ return {
 			"jdtls",
 		}
 
+		-- Fix Undefined global 'vim'
+		lsp.configure("lua_ls", {
+			settings = {
+				Lua = {
+					diagnostics = {
+						globals = { "vim" },
+					},
+				},
+			},
+		})
+
 		--  cant understand what it means
 		-- 	local cmp = require("cmp")
 		-- 	local cmp_select = {behavior = cmp.SelectBehavior.Select}
@@ -40,6 +51,15 @@ return {
 		-- 	})
 		--
 		-- 	lsp.setup_nvim_cmp({ mapping = cmp_mappings, })
+		--
+		-- Disable Tab and Shift-Tab for cmp.
+		local cmp_mappings = lsp.defaults.cmp_mappings({})
+		cmp_mappings["<Tab>"] = nil
+		cmp_mappings["<S-Tab>"] = nil
+
+		lsp.setup_nvim_cmp({
+			mapping = cmp_mappings,
+		})
 
 		lsp.on_attach(function(client, bufnr)
 			local opts = { buffer = bufnr, remap = false }
