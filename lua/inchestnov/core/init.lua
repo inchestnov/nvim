@@ -1,2 +1,2 @@
-require("inchestnov.core.options")
 require("inchestnov.core.keymaps")
+require("inchestnov.core.options")
