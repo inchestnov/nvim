@@ -1,5 +1,5 @@
 return {
   cmd = {'gopls'},
-  filetypes = {'go'},
+  filetypes = { "go", "gomod", "gowork", "gotmpl" },
   root_markers = {'go.mod'},
 }
