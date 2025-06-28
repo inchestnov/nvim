@@ -1,0 +1,14 @@
+package main
+
+import "context"
+
+func main() {
+	foo(2)
+
+	ctx := context.Background()
+	_ = ctx
+}
+
+func foo(a int) int {
+	return a + 1
+}
