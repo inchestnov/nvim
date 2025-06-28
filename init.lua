@@ -1,2 +1,2 @@
-require("inchestnov.lazy")
+require("config.lazy")
 
