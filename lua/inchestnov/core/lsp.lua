@@ -1,6 +1,11 @@
-vim.lsp.enable({'luals', 'gopls', 'rust_analyzer'})
+vim.lsp.enable({
+  'luals',
+  'gopls',
+  'rust_analyzer',
+  'ts_ls',
+})
 
--- vim.lsp.config('rust_analyzer', {
+-- vim.lsp.config('ts_ls', {
 --   on_init = function(client)
 --     print(client.name .. ' now runs in the background')
 --   end,
