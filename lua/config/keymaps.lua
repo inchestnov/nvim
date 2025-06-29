@@ -1,10 +1,3 @@
-vim.g.mapleader = " "
-
-vim.keymap.set("n", "-", ":Ex<CR>", { noremap = true, silent = true})
-
-vim.api.nvim_set_keymap("n", "<C-Left>",  "<C-w>h", { silent = true })
-vim.api.nvim_set_keymap("n", "<C-Down>", "<C-w>j", { silent = true })
-vim.api.nvim_set_keymap("n", "<C-Up>",    "<C-w>k", { silent = true })
-vim.api.nvim_set_keymap("n", "<C-Right>",  "<C-w>l", { silent = true })
-
--- cooming soon...
+-- Keymaps are automatically loaded on the VeryLazy event
+-- Default keymaps that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/keymaps.lua
+-- Add any additional keymaps here
